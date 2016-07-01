@@ -1,15 +1,15 @@
 # Materialize::Sass
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/materialize/sass`. To experiment with that code, run `bin/console` for an interactive prompt.
+Materialize-sass is a Sass-powered version of Materializecss.com, ready to drop right into your Sass powered applications.
 
-TODO: Delete this and the text above, and describe your gem
+`based on current version v0.97.6`
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'materialize-sass'
+gem 'materialize-sass', :git => 'git://github.com/amirolahmad/materialize-sass.git'
 ```
 
 And then execute:
@@ -22,15 +22,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Ensure that the `sass-rails` gem is present - it is added to new Rails applications by default
 
-## Development
+Import Materialize styles in app/assets/stylesheets/application.scss:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+@import "materialize";
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Make sure the file has `.scss` extension (or `.sass` for Sass syntax). If you have just generated a new Rails app, it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so rename it:
+
+```ruby
+$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+```
+
+Then, remove all the `*= require_self` and `*= require_tree .` statements from the sass file. Instead, use `@import` to import Sass files.
+
+Require Materialize Javascripts in app/assets/javascripts/application.js:
+
+```ruby
+//= require materialize
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/materialize-sass.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/AmirolAhmad/materialize-sass.
