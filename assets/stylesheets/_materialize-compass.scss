@@ -1,4 +1,4 @@
-@function ms-font-path($path) {
+@function roboto-font-path($path) {
   @return font-url($path, true);
 }
 
