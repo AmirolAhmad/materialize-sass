@@ -1,0 +1,9 @@
+@function ms-font-path($path) {
+  @return font-path($path);
+}
+
+@function ms-image-path($path) {
+  @return image-path($path);
+}
+
+$materialize-sass-asset-helper: true;
